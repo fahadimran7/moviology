@@ -40,8 +40,8 @@ IMDB_API_KEY=<YOUR_API_KEY>
 Clone the repository locally:
 
 ```
-$ git clone https://github.com/fahadimran7/moviology.git
-$ cd moviology
+$ git clone https://github.com/fahadimran7/flutter_movie_finder_app.git
+$ cd flutter_movie_finder_app
 ```
 
 Install dependencies:
