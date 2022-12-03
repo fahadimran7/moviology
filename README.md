@@ -1,13 +1,6 @@
-# Moviology | Flutter, Firebase, IMDb
+# Moviology
 
-> Explore your favourite TV shows and movies - an app built using Flutter, Firebase and IMDb API.
-
-## Tech Used
-
-- Flutter
-- Firebase
-- IMDb API
-- GitHub
+> My first Flutter app for discovering movies and TV shows using the [IMDb API](https://developer.imdb.com/) and Firebase.
 
 ## Features
 
@@ -22,10 +15,6 @@ As per the requirements for my Mobile Application Development for SMEs (EC303) c
 - [x] Firebase cloud storage
 - [x] Secure storage
 
-## Screenshots
-
-To view app and Firebase screenshots visit the following [Google drive link]() 🚀
-
 ## API Key
 
 The app uses movies data from the [IMDb API](https://imdb-api.com/). The free account provides you with an API Key limited to 100 requests per day.
@@ -37,24 +26,21 @@ IMDB_API_KEY=<YOUR_API_KEY>
 
 ## Usage
 
-Clone the repository locally:
+```bash
+# clone the repo
+$ git clone https://github.com/fahadimran7/moviology.git
+$ cd moviology
 
-```
-$ git clone https://github.com/fahadimran7/flutter_movie_finder_app.git
-$ cd flutter_movie_finder_app
-```
-
-Install dependencies:
-
-```
+# install dependencies
 $ flutter pub get
+
+# run the app
+$ flutter run
 ```
 
-Run the app:
+## Screenshots
 
-```
-$ flutter run lib/main.dart
-```
+For app screenshots, see the [upload](https://github.com/fahadimran11/moviology/tree/master/upload) folder 🚀
 
 ## Learnings
 
@@ -73,7 +59,3 @@ By building this project, I learned the following concepts:
 ## Improvements
 
 Implementing MVVM (Model-View-ViewModel) architecture and creating independent services for things like authentication, storage etc. can help to make the app more scalable. I could also consider refactoring the code to use Streams and Stream builders for handling real-time data from Firebase.
-
-## Contributions
-
-The repository has been archived because I do not plan to update the project.

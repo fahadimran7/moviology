@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:movie_search_app/config/palette.dart';
+import 'package:movie_search_app/constants/styles.dart';
 
 class EasterEggScreen extends StatefulWidget {
   const EasterEggScreen({Key? key}) : super(key: key);
@@ -30,7 +30,6 @@ class _EasterEggState extends State<EasterEggScreen> {
 
   @override
   void dispose() {
-    // Clean up the controller when the widget is disposed.
     nameController.dispose();
     super.dispose();
   }
@@ -41,7 +40,7 @@ class _EasterEggState extends State<EasterEggScreen> {
       home: Scaffold(
         appBar: AppBar(
           title: const Text("Easter Egg"),
-          backgroundColor: Palette.kToDark,
+          backgroundColor: kcPrimarySwatch[900],
         ),
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -71,53 +70,62 @@ class _EasterEggState extends State<EasterEggScreen> {
                   TextFormField(
                     controller: nameController,
                     decoration: InputDecoration(
-                        floatingLabelBehavior: FloatingLabelBehavior.never,
-                        prefixIcon: Icon(Icons.egg),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(6),
-                          borderSide: const BorderSide(
-                            width: 0,
-                            style: BorderStyle.none,
-                          ),
+                      floatingLabelBehavior: FloatingLabelBehavior.never,
+                      prefixIcon: const Icon(Icons.egg),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(6),
+                        borderSide: const BorderSide(
+                          width: 0,
+                          style: BorderStyle.none,
                         ),
-                        focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(6),
-                            borderSide: BorderSide(
-                                color: Palette.kToDark,
-                                style: BorderStyle.solid)),
-                        errorStyle: TextStyle(color: Colors.red.shade400),
-                        errorBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                                color: Colors.red.shade400, width: 1)),
-                        fillColor: const Color.fromARGB(255, 243, 243, 243),
-                        filled: true,
-                        labelText: "Enter any value you like"),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(6),
+                        borderSide: BorderSide(
+                          color: kcPrimarySwatch[900]!,
+                          style: BorderStyle.solid,
+                        ),
+                      ),
+                      errorStyle: TextStyle(color: Colors.red.shade400),
+                      errorBorder: OutlineInputBorder(
+                        borderSide:
+                            BorderSide(color: Colors.red.shade400, width: 1),
+                      ),
+                      fillColor: const Color.fromARGB(255, 243, 243, 243),
+                      filled: true,
+                      labelText: "Enter any value you like",
+                    ),
                   ),
                   TextButton(
-                      onPressed: () async {
-                        await storage.write(
-                            key: "name", value: nameController.text);
+                    onPressed: () async {
+                      await storage.write(
+                          key: "name", value: nameController.text);
 
-                        setState(() {
-                          name = nameController.text;
-                        });
+                      setState(() {
+                        name = nameController.text;
+                      });
 
-                        nameController.clear();
-                      },
-                      child: Text("Save Securely",
-                          style: TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold,
-                            color: Palette.kToDark,
-                          ))),
-                  SizedBox(
+                      nameController.clear();
+                    },
+                    child: Text(
+                      "Save Securely",
+                      style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                        color: kcPrimarySwatch[900],
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
                     height: 20,
                   ),
-                  Text("Value you've written securely is: ${name}",
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w600,
-                      ))
+                  Text(
+                    "Value you've written securely is: $name",
+                    style: const TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  )
                 ],
               ),
             ),

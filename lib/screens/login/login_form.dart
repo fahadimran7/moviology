@@ -1,11 +1,11 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:movie_search_app/commons/divider.dart';
-import 'package:movie_search_app/commons/elevated_button.dart';
-import 'package:movie_search_app/commons/text_button.dart';
-import 'package:movie_search_app/commons/text_field.dart';
+import 'package:movie_search_app/shared/divider.dart';
+import 'package:movie_search_app/shared/elevated_button.dart';
+import 'package:movie_search_app/shared/text_button.dart';
+import 'package:movie_search_app/shared/text_field.dart';
 import 'package:movie_search_app/firebase/firebase_authentication.dart';
-import 'package:movie_search_app/screens/home/home_screen.dart';
+import 'package:movie_search_app/screens/home_screen/home_screen.dart';
 import 'package:movie_search_app/utils/input_validators.dart';
 
 class LoginForm extends StatefulWidget {
@@ -37,7 +37,6 @@ class _LoginFormState extends State<LoginForm> {
 
   @override
   void dispose() {
-    // Clean up the controller when the widget is disposed.
     emailController.dispose();
     passwordController.dispose();
     super.dispose();

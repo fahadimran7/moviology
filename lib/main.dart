@@ -1,15 +1,17 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:movie_search_app/screens/home/home_screen.dart';
+import 'package:movie_search_app/constants/routes.dart';
+import 'package:movie_search_app/screens/home_screen/home_screen.dart';
 import 'package:movie_search_app/screens/login/login_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:movie_search_app/screens/register/register_screen.dart';
-import 'package:movie_search_app/state/movie_provider.dart';
+import 'package:movie_search_app/screens/create_account/register_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
-import 'config/palette.dart';
+import 'constants/styles.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+
+import 'providers/movie_provider.dart';
 
 Future main() async {
   await dotenv.load(fileName: ".env");
@@ -17,10 +19,6 @@ Future main() async {
     providers: providers,
     child: const MyApp(),
   ));
-}
-
-Future<bool> getUser() async {
-  return Future.delayed(const Duration(seconds: 1), (() => true));
 }
 
 List<SingleChildWidget> providers = [
@@ -54,20 +52,20 @@ class _MyAppState extends State<MyApp> {
         home: user == null ? const RegisterScreen() : const HomeScreen(),
         debugShowCheckedModeBanner: false,
         routes: {
-          "/register": (context) => const RegisterScreen(),
-          "/login": (context) => const LoginScreen(),
+          registerRoutePath: (_) => const RegisterScreen(),
+          loginRoutePath: (_) => const LoginScreen(),
         },
         title: 'Movie Finder',
         theme: ThemeData(
-            appBarTheme: const AppBarTheme(
-              foregroundColor: Colors.white,
-            ),
-            scaffoldBackgroundColor: const Color.fromARGB(255, 255, 255, 255),
-            textTheme: GoogleFonts.nunitoTextTheme(
-              Theme.of(context)
-                  .textTheme, // If this is not set, then ThemeData.light().textTheme is used.
-            ),
-            primarySwatch: Palette.kToDark),
+          appBarTheme: const AppBarTheme(
+            foregroundColor: Colors.white,
+          ),
+          scaffoldBackgroundColor: const Color.fromARGB(255, 255, 255, 255),
+          textTheme: GoogleFonts.nunitoTextTheme(
+            Theme.of(context).textTheme,
+          ),
+          primarySwatch: MaterialColor(0xFF00BE82, kcPrimarySwatch),
+        ),
       ),
     );
   }

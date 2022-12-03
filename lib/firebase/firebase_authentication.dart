@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'dart:async';
 
@@ -10,7 +11,7 @@ class FirebaseAuthentication {
           .createUserWithEmailAndPassword(email: email, password: password);
       return credential.user!.uid;
     } on FirebaseAuthException catch (e) {
-      print(e.message);
+      log(e.message.toString());
 
       return null;
     }
@@ -23,9 +24,9 @@ class FirebaseAuthentication {
       return credential.user!.uid;
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
-        print('No user found for that email.');
+        log('No user found for that email.');
       } else if (e.code == 'wrong-password') {
-        print('Wrong password provided for that user.');
+        log('Wrong password provided for that user.');
       }
 
       return null;

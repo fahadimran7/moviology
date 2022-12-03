@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:movie_search_app/shared/header.dart';
-import 'package:movie_search_app/screens/login/login_form.dart';
+import 'package:movie_search_app/screens/create_account/register_form.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+class RegisterScreen extends StatefulWidget {
+  const RegisterScreen({Key? key}) : super(key: key);
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<RegisterScreen> createState() => _RegisterScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,11 +25,14 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: 50,
               ),
               Header(
-                title: "Login",
-                text: "Provide your email to continue",
+                title: "Sign Up",
+                text: "Create an account to get started",
               ),
               SizedBox(height: 40),
-              LoginForm()
+              RegisterForm(),
+              SizedBox(
+                height: 50,
+              )
             ]),
       ),
     );
