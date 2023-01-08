@@ -2,16 +2,18 @@
 
 > My first Flutter app for discovering movies and TV shows using the [IMDb API](https://developer.imdb.com/) and Firebase.
 
+![](./upload/banner.png)
+
 ## Features
 
 As per the requirements for my Mobile Application Development for SMEs (EC303) course, I implemented the following features:
 
-- [x] External API i.e. IMDb API
-- [x] Provider for state management
+- [x] External API for data
+- [x] State management
 - [x] Audio and sounds
 - [x] Push notifications using Firebase
 - [x] Firebase authentication
-- [x] Firestore database
+- [x] Firestore db
 - [x] Firebase cloud storage
 - [x] Secure storage
 
